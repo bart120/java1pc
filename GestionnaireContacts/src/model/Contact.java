@@ -1,5 +1,8 @@
 package model;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.PrintWriter;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -72,7 +75,12 @@ public class Contact {
     }
 
     public void enregistrer() {
-
+        PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter("contacts.csv", true)))
+        try{
+            pw.println(this.toString());
+        }finally{
+            pw.close();
+        }
     }
 
     @Override

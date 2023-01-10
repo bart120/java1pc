@@ -65,7 +65,8 @@ public class App {
                 System.out.println("Mauvaise date de naissance!");
             }
         }
-        System.out.println(c.toString());
+        c.enregistrer();
+        System.out.println("Contact enregistré");
 
     }
 
