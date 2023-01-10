@@ -2,6 +2,7 @@ package model;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -74,11 +75,11 @@ public class Contact {
         this.dateNaissance = format.parse(dateNaissance);
     }
 
-    public void enregistrer() {
-        PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter("contacts.csv", true)))
-        try{
+    public void enregistrer() throws IOException {
+        PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter("contacts.csv", true)));
+        try {
             pw.println(this.toString());
-        }finally{
+        } finally {
             pw.close();
         }
     }
