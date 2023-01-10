@@ -28,7 +28,7 @@ public class App {
         }
     }
 
-    private static void ajouterContact() 1{
+    private static void ajouterContact() {
         Contact c = new Contact();
         System.out.println("Saisir le nom");
         c.setNom(_scan.nextLine());
