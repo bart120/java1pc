@@ -7,6 +7,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Contact {
+    private static final String SEPARATEUR = ";";
+
     private String nom;
     private String prenom;
     private String mail;
@@ -59,13 +61,33 @@ public class Contact {
         }
     }
 
-    public Date getDateNaissance() {
-        return dateNaissance;
+    public String getDateNaissance() {
+        SimpleDateFormat f = new SimpleDateFormat("dd/MM/yyyy");
+        return f.format(dateNaissance);
     }
 
     public void setDateNaissance(String dateNaissance) throws ParseException {
         SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
         this.dateNaissance = format.parse(dateNaissance);
+    }
+
+    public void enregistrer() {
+
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder build = new StringBuilder();
+        build.append(this.getNom());
+        build.append(SEPARATEUR);
+        build.append(this.getPrenom());
+        build.append(SEPARATEUR);
+        build.append(this.getMail());
+        build.append(SEPARATEUR);
+        build.append(this.getTelephone());
+        build.append(SEPARATEUR);
+        build.append(this.getDateNaissance());
+        return build.toString();
     }
 
 }

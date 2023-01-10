@@ -42,7 +42,7 @@ public class App {
                 c.setMail(_scan.nextLine());
                 break;
             } catch (ParseException e) {
-                System.out.println("Mauvais mail!");
+                System.out.println(e.getMessage());
             }
         }
 
@@ -65,6 +65,8 @@ public class App {
                 System.out.println("Mauvaise date de naissance!");
             }
         }
+        System.out.println(c.toString());
+
     }
 
     private static void afficherMenu() {
