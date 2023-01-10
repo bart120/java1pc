@@ -3,6 +3,8 @@ package model;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Contact {
     private String nom;
@@ -31,16 +33,30 @@ public class Contact {
         return mail;
     }
 
-    public void setMail(String mail) {
-        this.mail = mail;
+    public void setMail(String mail) throws ParseException {
+        Pattern pat = Pattern.compile("^[a-zA-Z0-9_.-]+@{1}[a-zA-Z0-9_.-]{2,}\\.[a-zA-Z.]{2,10}$");
+        Matcher matcher = pat.matcher(mail);
+        if (matcher.matches()) {
+            this.mail = mail;
+        } else {
+            ParseException e = new ParseException("Le format du mail est incorrect.", 0);
+            throw e;
+        }
     }
 
     public String getTelephone() {
         return telephone;
     }
 
-    public void setTelephone(String telephone) {
-        this.telephone = telephone;
+    public void setTelephone(String telephone) throws ParseException {
+        Pattern pat = Pattern.compile("^(?:(?:\\+|00)33|0)\\s*[1-9](?:[\\s.-]*\\d{2}){4}$");
+        Matcher matcher = pat.matcher(telephone);
+        if (matcher.matches()) {
+            this.telephone = telephone;
+        } else {
+            ParseException e = new ParseException("Le format du numéro est incorrect.", 0);
+            throw e;
+        }
     }
 
     public Date getDateNaissance() {

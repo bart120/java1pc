@@ -36,11 +36,25 @@ public class App {
         System.out.println("Saisir le prénom");
         c.setPrenom(_scan.nextLine());
 
-        System.out.println("Saisir le mail");
-        c.setMail(_scan.nextLine());
+        while (true) {
+            try {
+                System.out.println("Saisir le mail");
+                c.setMail(_scan.nextLine());
+                break;
+            } catch (ParseException e) {
+                System.out.println("Mauvais mail!");
+            }
+        }
 
-        System.out.println("Saisir le téléphone");
-        c.setTelephone(_scan.nextLine());
+        while (true) {
+            try {
+                System.out.println("Saisir le téléphone");
+                c.setTelephone(_scan.nextLine());
+                break;
+            } catch (ParseException e) {
+                System.out.println("Mauvais téléphone!");
+            }
+        }
 
         while (true) {
             try {
