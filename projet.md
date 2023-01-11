@@ -73,9 +73,17 @@ Pour tout autre type de fichier, veuillez demander à l'enseignant si son inclus
 La soutenance dure 10 minutes durant lesquelles les membres présentent leur travail. Un échange de questions peut se faire entre le professeur et les membres du groupe.
 
 Les groupes sont les suivants:
+- G1 : Paul, Leo Y, Mattéo
+- G2 : Esteban, jean juste , Benjamin T 
+- G3 : Léo V, Ethan N, Sacha
+- G4 : Lucas T, florent, Ethan D
+- G5 : Dounya, Baptiste, Aya
+- G6 : Lina, Amin, Nabil
+- G7 : Eloi, Léopold, océane
+- G8 : samba, Jordan, Timéo
+- G9 : Mathys, Kevin, Alexandre, Kenza
+
 
 
 Les horaires de passage des groupes sont les suivants:
-- 9h30 => 
-- 15h15 => 
 - 15h45 => 
