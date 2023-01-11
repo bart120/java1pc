@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -18,6 +19,7 @@ public class App {
                     ajouterContact();
                     break;
                 case "2":
+                    listerContacts();
                     break;
                 case "q":
                     return;
@@ -28,7 +30,14 @@ public class App {
         }
     }
 
-    private static void ajouterContact() {
+    private static void listerContacts() {
+        ArrayList<Contact> list = new ArrayList<>();// récupérer les contacts avec la méthode lister de la class contact
+        for (Contact contact : list) {
+            System.out.println(contact.getNom() + " " + contact.getPrenom());
+        }
+    }
+
+    private static void ajouterContact() throws IOException {
         Contact c = new Contact();
         System.out.println("Saisir le nom");
         c.setNom(_scan.nextLine());

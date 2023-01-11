@@ -4,8 +4,10 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.lang.reflect.Array;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -82,6 +84,12 @@ public class Contact {
         } finally {
             pw.close();
         }
+    }
+
+    public ArrayList<Contact> lister() {
+        ArrayList<Contact> list = new ArrayList<>();
+        // TODO: récupérer les contacts dans le fichier et les ajouter à la liste.
+        return list;
     }
 
     @Override
