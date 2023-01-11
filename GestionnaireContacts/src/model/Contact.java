@@ -1,10 +1,12 @@
 package model;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.lang.reflect.Array;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -78,17 +80,38 @@ public class Contact {
     }
 
     public void enregistrer() throws IOException {
-        PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter("contacts.csv", true)));
-        try {
-            pw.println(this.toString());
-        } finally {
-            pw.close();
+        /*
+         * PrintWriter pw = new PrintWriter(new BufferedWriter(new
+         * FileWriter("contacts.csv", true)));
+         * try {
+         * pw.println(this.toString());
+         * } finally {
+         * pw.close();
+         * }
+         */
+
+        try (PrintWriter pw2 = new PrintWriter(new BufferedWriter(new FileWriter("contacts.csv", true)))) {
+            pw2.println(this.toString());
         }
+
     }
 
-    public ArrayList<Contact> lister() {
+    public static ArrayList<Contact> lister() throws FileNotFoundException, IOException, ParseException {
         ArrayList<Contact> list = new ArrayList<>();
-        // TODO: récupérer les contacts dans le fichier et les ajouter à la liste.
+        try (BufferedReader buf = new BufferedReader(new FileReader("contacts.csv"))) {
+            String ligne = buf.readLine();
+            while (ligne != null) {
+                String[] tab = ligne.split(SEPARATEUR);
+                Contact c = new Contact();
+                c.setNom(tab[0]);
+                c.setPrenom(tab[1]);
+                c.setMail(tab[2]);
+                c.setTelephone(tab[3]);
+                c.setDateNaissance(tab[4]);
+                list.add(c);
+                ligne = buf.readLine();
+            }
+        }
         return list;
     }
 

@@ -1,6 +1,8 @@
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 import model.Contact;
@@ -31,9 +33,14 @@ public class App {
     }
 
     private static void listerContacts() {
-        ArrayList<Contact> list = new ArrayList<>();// récupérer les contacts avec la méthode lister de la class contact
-        for (Contact contact : list) {
-            System.out.println(contact.getNom() + " " + contact.getPrenom());
+        try {
+            ArrayList<Contact> list = Contact.lister();
+
+            for (Contact contact : list) {
+                System.out.println(contact.getNom() + " " + contact.getPrenom());
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
     }
 
@@ -84,6 +91,8 @@ public class App {
         menus.add("-- MENU --");
         menus.add("1- Ajouter un contact");
         menus.add("2- Lister les contacts");
+        menus.add("3- Modifier un contact");
+        menus.add("4- Supprimer un contact");
         menus.add("q- Quitter");
         for (String menu : menus) {
             System.out.println(menu);
