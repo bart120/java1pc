@@ -81,7 +81,8 @@ Les groupes sont les suivants:
 - G6 : Lina, Amin, Nabil
 - G7 : Eloi, Léopold, océane
 - G8 : samba, Jordan, Timéo
-- G9 : Mathys, Kevin, Alexandre, Kenza
+-	G9 : Tristan turgy,	Romain jahier, Benjamin henry,	Lucas salaun, Mael tordjman 
+- G10 : Mathys, Kevin, Alexandre, Kenza
 
 
 
